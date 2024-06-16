@@ -1,0 +1,134 @@
+.header {
+  width: 100%;
+  height: 60px;
+  padding-left: 16px;
+  padding-right: 24px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 1px;
+  position: fixed;
+  top: 0;
+
+  .content {
+    display: flex;
+    justify-content: space-between;
+    height: 100%;
+    align-items: center;
+  }
+}
+
+.logo {
+  font-size: 0;
+  img {
+    display: inline;
+  }
+}
+
+.box-search {
+  display: flex;
+  align-items: center;
+  width: 500px;
+  height: 46px;
+  padding: 14px 16px;
+  background: rgba(22, 24, 35, 0.06);
+  border: 1px solid transparent;
+  border-radius: 92px;
+  position: relative;
+  overflow: hidden;
+  transform: translateX(50px);
+
+  input {
+    width: 92%;
+    background-color: transparent;
+    border: none;
+    padding-right: 45px;
+    caret-color: var(--primary-color);
+    color: rgb(22, 24, 35);
+    outline: none;
+    font-size: 1.6rem;
+    font-weight: 400;
+
+    &::placeholder {
+      font-size: 1.6rem;
+      color: rgb(22, 24, 35);
+      outline: none;
+      font-weight: 400;
+    }
+
+    &:not(:placeholder-shown) ~ .search-btn {
+      color: rgb(22, 24, 35);
+    }
+  }
+
+  .clear,
+  .loading {
+    position: absolute;
+    right: 70px;
+    color: rgba(22, 24, 35, 0.34);
+    font-size: 16px;
+  }
+
+  span {
+    width: 1px;
+    height: 28px;
+    margin-left: 3px;
+    background: rgba(22, 24, 35, 0.12);
+  }
+
+  .search-btn {
+    width: 10%;
+    height: 100%;
+    font-size: 19px;
+    position: absolute;
+    right: 0px;
+    cursor: pointer;
+    color: rgba(22, 24, 35, 0.34);
+
+    &:hover {
+      background: rgba(22, 24, 35, 0.06);
+    }
+  }
+
+  &:focus-within {
+    border-color: #333;
+  }
+}
+
+.box-search:hover {
+  border-color: #333;
+
+  .search-btn {
+    background: rgba(22, 24, 35, 0.06);
+  }
+}
+
+.group-btn {
+  display: flex;
+  align-items: center;
+  gap: 0 32px;
+
+  .upload-btn {
+    min-width: 110px;
+    height: 36px;
+    padding: 0px 16px;
+    margin-right: 20px;
+    border: 1px solid rgba(22, 24, 35, 0.12);
+    border-radius: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+  }
+
+  .upload-btn span {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+  }
+
+  .message-btn,
+  .letter-btn,
+  .account {
+    font-size: 24px;
+  }
+}
