@@ -1,12 +1,10 @@
-import Sidebar from "../DefaultLayout/Sidebar";
 import Header from "../components/Header";
 
 function HeaderOnly({ children }) {
   return (
     <>
       <Header />
-      <main>
-        <Sidebar />
+      <main style={{ marginTop: 60 }}>
         <div className="content">{children}</div>
       </main>
     </>

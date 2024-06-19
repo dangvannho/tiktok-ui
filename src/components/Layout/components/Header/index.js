@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import classNames from "classnames/bind";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -11,11 +12,26 @@ import {
   faPlus,
   faSpinner,
 } from "@fortawesome/free-solid-svg-icons";
+import TippyHeadless from "@tippyjs/react/headless";
+import Tippy from "@tippyjs/react";
+import "tippy.js/dist/tippy.css";
+
 import styles from "./Header.module.scss";
 import images from "~/asset/images";
+import Popper from "~/components/Popper";
+import AccountItems from "~/components/AccountItems";
+
 const cx = classNames.bind(styles);
 
 function Header() {
+  const [searchResult, setSearchResult] = useState([]);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setSearchResult([1, 2, 3]);
+    }, 3000);
+  }, []);
+
   return (
     <header className={cx("header")}>
       <div className={cx("content")}>
@@ -25,22 +41,45 @@ function Header() {
         </div>
 
         {/* Search box*/}
-        <div className={cx("box-search")}>
-          <input type="text" placeholder="Tìm kiếm" spellCheck={false} />
-          {/* Clear Button */}
-          <button className={cx("clear")}>
-            <FontAwesomeIcon icon={faCircleXmark} />
-          </button>
+        <div>
+          <TippyHeadless
+            visible={searchResult.length > 0}
+            interactive="true"
+            render={(attrs) => (
+              <div className={cx("search-result")} tabIndex="-1" {...attrs}>
+                <Popper>
+                  <h4 className={cx("search-title")}>Tài khoản</h4>
+                  <AccountItems
+                    nickName="Đặng Ngọc Hải"
+                    userName="dangngochai"
+                  />
+                  <AccountItems nickName="Lê Văn Tri" userName="levantri" />
+                  <AccountItems
+                    nickName="Nguyễn Tấn Dũng"
+                    userName="nguyentandung"
+                  />
+                </Popper>
+              </div>
+            )}
+          >
+            <div className={cx("box-search")}>
+              <input type="text" placeholder="Tìm kiếm" spellCheck={false} />
+              {/* Clear Button */}
+              <button className={cx("clear")}>
+                <FontAwesomeIcon icon={faCircleXmark} />
+              </button>
 
-          {/* Loading */}
-          <FontAwesomeIcon icon={faSpinner} className={cx("loading")} />
+              {/* Loading */}
+              <FontAwesomeIcon icon={faSpinner} className={cx("loading")} />
 
-          <span></span>
+              <span></span>
 
-          {/* Search button*/}
-          <button className={cx("search-btn")}>
-            <FontAwesomeIcon icon={faMagnifyingGlass} />
-          </button>
+              {/* Search button*/}
+              <button className={cx("search-btn")}>
+                <FontAwesomeIcon icon={faMagnifyingGlass} />
+              </button>
+            </div>
+          </TippyHeadless>
         </div>
 
         {/* Group button*/}
@@ -51,20 +90,36 @@ function Header() {
             <span>Tải lên</span>
           </div>
 
-          {/* Message button*/}
-          <div className={cx("message-btn")}>
-            <FontAwesomeIcon icon={faPaperPlane} />
-          </div>
+          {/* Login button*/}
+          <div className={cx("login-btn")}>Đăng nhập</div>
 
-          {/* Box-letter button*/}
-          <div className={cx("letter-btn")}>
-            <FontAwesomeIcon icon={faEnvelope} />
-          </div>
+          {/*
+            // Message button
+             <Tippy
+            content="Tin nhắn"
+            interactive="true"
+            className={cx("message-tippy")}
+          >
+            <div className={cx("message-btn")}>
+              <FontAwesomeIcon icon={faPaperPlane} />
+            </div>
+          </Tippy>
 
-          {/* Account*/}
+          // letter button
+          <Tippy
+            content="Hộp thư"
+            interactive="true"
+            className={cx("letter-tippy")}
+          >
+            <div className={cx("letter-btn")}>
+              <FontAwesomeIcon icon={faEnvelope} />
+            </div>
+          </Tippy>
+
+            // Account
           <div className={cx("account")}>
             <FontAwesomeIcon icon={faUser} />
-          </div>
+          </div> */}
         </div>
       </div>
     </header>
