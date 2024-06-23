@@ -1,5 +1,10 @@
+import Button from "~/components/Button";
 function Sidebar() {
-  return <h1>Sidebar</h1>;
+  return (
+    <Button outline large>
+      Đăng nhập
+    </Button>
+  );
 }
 
 export default Sidebar;

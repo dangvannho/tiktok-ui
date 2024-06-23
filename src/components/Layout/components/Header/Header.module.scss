@@ -117,51 +117,51 @@
   align-items: center;
   gap: 0 16px;
 
-  .upload-btn {
-    min-width: 110px;
-    height: 36px;
-    padding: 0px 16px;
-    border: 1px solid rgba(22, 24, 35, 0.12);
-    border-radius: 2px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    cursor: pointer;
-  }
+  // .upload-btn {
+  //   min-width: 110px;
+  //   height: 36px;
+  //   padding: 0px 16px;
+  //   border: 1px solid rgba(22, 24, 35, 0.12);
+  //   border-radius: 2px;
+  //   display: flex;
+  //   justify-content: center;
+  //   align-items: center;
+  //   gap: 10px;
+  //   cursor: pointer;
+  // }
 
-  .upload-btn span {
-    font-style: normal;
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 24px;
-  }
+  // .upload-btn span {
+  //   font-style: normal;
+  //   font-weight: 600;
+  //   font-size: 16px;
+  //   line-height: 24px;
+  // }
 
-  .login-btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-width: 110px;
-    height: 36px;
-    padding: 6px 8px;
-    border-radius: 4px;
-    background-color: var(--primary-color);
-    color: #fff;
-    font-weight: 700;
-    cursor: pointer;
-  }
+  // .login-btn {
+  //   display: flex;
+  //   justify-content: center;
+  //   align-items: center;
+  //   min-width: 110px;
+  //   height: 36px;
+  //   padding: 6px 8px;
+  //   border-radius: 4px;
+  //   background-color: var(--primary-color);
+  //   color: #fff;
+  //   font-weight: 700;
+  //   cursor: pointer;
+  // }
 
-  .message-btn,
-  .letter-btn,
-  .account {
-    font-size: 24px;
-    cursor: pointer;
-  }
+  // .message-btn,
+  // .letter-btn,
+  // .account {
+  //   font-size: 24px;
+  //   cursor: pointer;
+  // }
 }
 
-.message-tippy,
-.letter-tippy {
-  font-family: "IBM Plex Sans", sans-serif;
-  font-size: 1.8rem;
-  border-radius: 8px;
-}
+// .message-tippy,
+// .letter-tippy {
+//   font-family: "IBM Plex Sans", sans-serif;
+//   font-size: 1.8rem;
+//   border-radius: 8px;
+// }

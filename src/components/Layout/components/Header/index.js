@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import classNames from "classnames/bind";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faEnvelope,
-  faPaperPlane,
-  faUser,
-} from "@fortawesome/free-regular-svg-icons";
+// import {
+//   faEnvelope,
+//   faPaperPlane,
+//   faUser,
+// } from "@fortawesome/free-regular-svg-icons";
 import {
   faCircleXmark,
   faMagnifyingGlass,
@@ -13,13 +13,14 @@ import {
   faSpinner,
 } from "@fortawesome/free-solid-svg-icons";
 import TippyHeadless from "@tippyjs/react/headless";
-import Tippy from "@tippyjs/react";
+// import Tippy from "@tippyjs/react";
 import "tippy.js/dist/tippy.css";
 
 import styles from "./Header.module.scss";
 import images from "~/asset/images";
 import Popper from "~/components/Popper";
 import AccountItems from "~/components/AccountItems";
+import Button from "~/components/Button";
 
 const cx = classNames.bind(styles);
 
@@ -84,42 +85,18 @@ function Header() {
 
         {/* Group button*/}
         <div className={cx("group-btn")}>
-          {/* UpLoad button*/}
-          <div className={cx("upload-btn")}>
+          <Button upload>
             <FontAwesomeIcon icon={faPlus} />
             <span>Tải lên</span>
-          </div>
-
-          {/* Login button*/}
-          <div className={cx("login-btn")}>Đăng nhập</div>
-
-          {/*
-            // Message button
-             <Tippy
-            content="Tin nhắn"
-            interactive="true"
-            className={cx("message-tippy")}
+          </Button>
+          <Button
+            primary
+            onClick={() => {
+              alert("đăng nhập");
+            }}
           >
-            <div className={cx("message-btn")}>
-              <FontAwesomeIcon icon={faPaperPlane} />
-            </div>
-          </Tippy>
-
-          // letter button
-          <Tippy
-            content="Hộp thư"
-            interactive="true"
-            className={cx("letter-tippy")}
-          >
-            <div className={cx("letter-btn")}>
-              <FontAwesomeIcon icon={faEnvelope} />
-            </div>
-          </Tippy>
-
-            // Account
-          <div className={cx("account")}>
-            <FontAwesomeIcon icon={faUser} />
-          </div> */}
+            Đăng nhập
+          </Button>
         </div>
       </div>
     </header>
