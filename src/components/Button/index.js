@@ -11,8 +11,11 @@ function Button({
   upload = false,
   outline = false,
   large = false,
+  leftIcon,
   children,
   onClick,
+  className,
+  classIcon,
   ...passProps
 }) {
   let Component = "button";
@@ -20,8 +23,6 @@ function Button({
     onClick,
     ...passProps,
   };
-
-  console.log(props);
 
   if (to) {
     props.to = to;
@@ -31,10 +32,12 @@ function Button({
     Component = "a";
   }
 
-  let classes = cx("wrapper", { primary, upload, outline, large });
+  let classes = cx("wrapper", { primary, upload, outline, large }, className);
+
   return (
     <Component className={classes} {...props}>
-      {children}
+      {leftIcon && <span className={classIcon}>{leftIcon}</span>}
+      <span>{children}</span>
     </Component>
   );
 }

@@ -1,14 +1,19 @@
 import { useEffect, useState } from "react";
 import classNames from "classnames/bind";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import {
-//   faEnvelope,
-//   faPaperPlane,
-//   faUser,
-// } from "@fortawesome/free-regular-svg-icons";
+import {
+  faEnvelope,
+  faPaperPlane,
+  faUser,
+  faCircleQuestion,
+} from "@fortawesome/free-regular-svg-icons";
 import {
   faCircleXmark,
+  faEllipsisVertical,
+  faHouseCrack,
+  faLanguage,
   faMagnifyingGlass,
+  faMoon,
   faPlus,
   faSpinner,
 } from "@fortawesome/free-solid-svg-icons";
@@ -16,16 +21,38 @@ import TippyHeadless from "@tippyjs/react/headless";
 // import Tippy from "@tippyjs/react";
 import "tippy.js/dist/tippy.css";
 
+import Login from "~/Pages/Login";
+
 import styles from "./Header.module.scss";
 import images from "~/asset/images";
 import Popper from "~/components/Popper";
 import AccountItems from "~/components/AccountItems";
 import Button from "~/components/Button";
+import Menu from "~/components/Menu";
 
 const cx = classNames.bind(styles);
 
 function Header() {
   const [searchResult, setSearchResult] = useState([]);
+
+  const MENU_ITEMS = [
+    {
+      icon: <FontAwesomeIcon icon={faHouseCrack} />,
+      title: "Công cụ dành cho nhà sáng tạo",
+    },
+    {
+      icon: <FontAwesomeIcon icon={faLanguage} />,
+      title: "Tiếng việt",
+    },
+    {
+      icon: <FontAwesomeIcon icon={faCircleQuestion} />,
+      title: "Phản hồi và trợ giúp",
+    },
+    {
+      icon: <FontAwesomeIcon icon={faMoon} />,
+      title: "Chế độ tối",
+    },
+  ];
 
   useEffect(() => {
     setTimeout(() => {
@@ -85,18 +112,22 @@ function Header() {
 
         {/* Group button*/}
         <div className={cx("group-btn")}>
-          <Button upload>
-            <FontAwesomeIcon icon={faPlus} />
-            <span>Tải lên</span>
+          {/* upload button*/}
+          <Button upload leftIcon={<FontAwesomeIcon icon={faPlus} />}>
+            Tải lên
           </Button>
-          <Button
-            primary
-            onClick={() => {
-              alert("đăng nhập");
-            }}
-          >
+
+          {/* login button*/}
+          <Button primary to="/login">
             Đăng nhập
           </Button>
+
+          {/* menu*/}
+          <Menu items={MENU_ITEMS}>
+            <button className={cx("more-btn")}>
+              <FontAwesomeIcon icon={faEllipsisVertical} />
+            </button>
+          </Menu>
         </div>
       </div>
     </header>
