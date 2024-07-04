@@ -1,7 +1,7 @@
 import Button from "~/components/Button";
 function Sidebar() {
   return (
-    <Button outline large>
+    <Button to="/login" outline large>
       Đăng nhập
     </Button>
   );

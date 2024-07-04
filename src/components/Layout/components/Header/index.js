@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import classNames from "classnames/bind";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -6,34 +5,32 @@ import {
   faPaperPlane,
   faUser,
   faCircleQuestion,
+  faBookmark,
 } from "@fortawesome/free-regular-svg-icons";
 import {
-  faCircleXmark,
+  faCoins,
   faEllipsisVertical,
+  faGear,
   faHouseCrack,
   faLanguage,
-  faMagnifyingGlass,
   faMoon,
   faPlus,
-  faSpinner,
+  faSignOut,
 } from "@fortawesome/free-solid-svg-icons";
-import TippyHeadless from "@tippyjs/react/headless";
-// import Tippy from "@tippyjs/react";
+import Tippy from "@tippyjs/react";
 import "tippy.js/dist/tippy.css";
-
-import Login from "~/Pages/Login";
 
 import styles from "./Header.module.scss";
 import images from "~/asset/images";
-import Popper from "~/components/Popper";
-import AccountItems from "~/components/AccountItems";
 import Button from "~/components/Button";
 import Menu from "~/components/Menu";
+import Search from "../Search";
+import avatar from "~/asset/avatar/avatar-img.jpg";
 
 const cx = classNames.bind(styles);
 
 function Header() {
-  const [searchResult, setSearchResult] = useState([]);
+  const currentUser = true;
 
   const MENU_ITEMS = [
     {
@@ -43,6 +40,19 @@ function Header() {
     {
       icon: <FontAwesomeIcon icon={faLanguage} />,
       title: "Tiếng việt",
+      children: {
+        title: "Ngôn ngữ",
+        data: [
+          {
+            code: "vi",
+            title: "Tiếng Việt",
+          },
+          {
+            code: "en",
+            title: "English",
+          },
+        ],
+      },
     },
     {
       icon: <FontAwesomeIcon icon={faCircleQuestion} />,
@@ -54,11 +64,40 @@ function Header() {
     },
   ];
 
-  useEffect(() => {
-    setTimeout(() => {
-      setSearchResult([1, 2, 3]);
-    }, 3000);
-  }, []);
+  const MENU_ITEM2 = [
+    {
+      icon: <FontAwesomeIcon icon={faUser} />,
+      title: "Xem hồ sơ",
+    },
+    {
+      icon: <FontAwesomeIcon icon={faBookmark} />,
+      title: "Yêu thích",
+    },
+    {
+      icon: <FontAwesomeIcon icon={faCoins} />,
+      title: "Nhận xu",
+      to: "/coin",
+    },
+    {
+      icon: <FontAwesomeIcon icon={faGear} />,
+      title: "Cài đặt",
+      to: "/setting",
+    },
+
+    {
+      icon: <FontAwesomeIcon icon={faLanguage} />,
+      title: "Tiếng việt",
+    },
+    {
+      icon: <FontAwesomeIcon icon={faCircleQuestion} />,
+      title: "Phản hồi và trợ giúp",
+    },
+    {
+      icon: <FontAwesomeIcon icon={faSignOut} />,
+      title: "Thoát",
+      separate: true,
+    },
+  ];
 
   return (
     <header className={cx("header")}>
@@ -69,66 +108,72 @@ function Header() {
         </div>
 
         {/* Search box*/}
-        <div>
-          <TippyHeadless
-            visible={searchResult.length > 0}
-            interactive="true"
-            render={(attrs) => (
-              <div className={cx("search-result")} tabIndex="-1" {...attrs}>
-                <Popper>
-                  <h4 className={cx("search-title")}>Tài khoản</h4>
-                  <AccountItems
-                    nickName="Đặng Ngọc Hải"
-                    userName="dangngochai"
-                  />
-                  <AccountItems nickName="Lê Văn Tri" userName="levantri" />
-                  <AccountItems
-                    nickName="Nguyễn Tấn Dũng"
-                    userName="nguyentandung"
-                  />
-                </Popper>
+        <Search />
+
+        {currentUser ? (
+          <div className={cx("group-btn")}>
+            {/* upload button */}
+            <Button
+              upload
+              to="/upload"
+              leftIcon={<FontAwesomeIcon icon={faPlus} />}
+            >
+              Tải lên
+            </Button>
+
+            {/* Message button */}
+            <Tippy
+              content="Tin nhắn"
+              interactive="true"
+              className={cx("message-tippy")}
+            >
+              <div className={cx("message-btn")}>
+                <FontAwesomeIcon icon={faPaperPlane} />
               </div>
-            )}
-          >
-            <div className={cx("box-search")}>
-              <input type="text" placeholder="Tìm kiếm" spellCheck={false} />
-              {/* Clear Button */}
-              <button className={cx("clear")}>
-                <FontAwesomeIcon icon={faCircleXmark} />
+            </Tippy>
+
+            {/* Letter button */}
+            <Tippy
+              content="Hộp thư"
+              interactive="true"
+              className={cx("letter-tippy")}
+            >
+              <div className={cx("letter-btn")}>
+                <FontAwesomeIcon icon={faEnvelope} />
+              </div>
+            </Tippy>
+
+            {/* User account */}
+            <Menu items={MENU_ITEM2}>
+              <div className={cx("account")}>
+                <img src={avatar} alt="" className={cx("img-account")} />
+              </div>
+            </Menu>
+          </div>
+        ) : (
+          <div className={cx("group-btn")}>
+            {/* upload button*/}
+            <Button
+              upload
+              to="/upload"
+              leftIcon={<FontAwesomeIcon icon={faPlus} />}
+            >
+              Tải lên
+            </Button>
+
+            {/* login button*/}
+            <Button primary to="/login">
+              Đăng nhập
+            </Button>
+
+            {/* menu*/}
+            <Menu items={MENU_ITEMS}>
+              <button className={cx("more-btn")}>
+                <FontAwesomeIcon icon={faEllipsisVertical} />
               </button>
-
-              {/* Loading */}
-              <FontAwesomeIcon icon={faSpinner} className={cx("loading")} />
-
-              <span></span>
-
-              {/* Search button*/}
-              <button className={cx("search-btn")}>
-                <FontAwesomeIcon icon={faMagnifyingGlass} />
-              </button>
-            </div>
-          </TippyHeadless>
-        </div>
-
-        {/* Group button*/}
-        <div className={cx("group-btn")}>
-          {/* upload button*/}
-          <Button upload leftIcon={<FontAwesomeIcon icon={faPlus} />}>
-            Tải lên
-          </Button>
-
-          {/* login button*/}
-          <Button primary to="/login">
-            Đăng nhập
-          </Button>
-
-          {/* menu*/}
-          <Menu items={MENU_ITEMS}>
-            <button className={cx("more-btn")}>
-              <FontAwesomeIcon icon={faEllipsisVertical} />
-            </button>
-          </Menu>
-        </div>
+            </Menu>
+          </div>
+        )}
       </div>
     </header>
   );

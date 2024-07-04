@@ -15,3 +15,23 @@
 .icon {
   min-width: 25px;
 }
+
+.header {
+  position: relative;
+  text-align: center;
+  height: 50px;
+
+  .back-btn {
+    position: absolute;
+    left: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+  }
+
+  .header-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    line-height: 50px;
+  }
+}
