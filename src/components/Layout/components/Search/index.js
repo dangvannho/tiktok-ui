@@ -7,6 +7,8 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import TippyHeadless from "@tippyjs/react/headless";
 import classNames from "classnames/bind";
+
+import { seacrhService } from "~/apiServices/searchService";
 import Popper from "~/components/Popper";
 import AccountItems from "~/components/AccountItems";
 import useDebounce from "~/hooks/useDebounce";
@@ -40,14 +42,10 @@ function Search() {
 
     setLoading(true);
 
-    fetch(
-      `https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(
-        debounced
-      )}&type=less`
-    )
-      .then((respone) => respone.json())
+    // Api
+    seacrhService(debounced)
       .then((respone) => {
-        setSearchResult(respone.data);
+        setSearchResult(respone.data.data);
         setLoading(false);
       })
       .catch(() => setLoading(false));
