@@ -13,6 +13,7 @@ function Menu({ children, items = [] }) {
     <TippyHeadless
       interactive
       delay={[0, 700]}
+      hideOnClick={false}
       render={(attrs) => (
         <div className={cx("menu-list")} tabIndex="-1" {...attrs}>
           <Popper>

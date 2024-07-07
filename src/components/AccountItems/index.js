@@ -8,7 +8,7 @@ const cx = classNames.bind(styles);
 
 function AccountItems({ data }) {
   return (
-    <div className={cx("wrapper")}>
+    <Link to={`/@${data.nickname}`} className={cx("wrapper")}>
       <img className={cx("avatar")} src={data.avatar} alt="" />
       <div className={cx("info")}>
         <p className={cx("name")}>
@@ -20,7 +20,7 @@ function AccountItems({ data }) {
         </p>
         <span className={cx("username")}>{data.full_name}</span>
       </div>
-    </div>
+    </Link>
   );
 }
 

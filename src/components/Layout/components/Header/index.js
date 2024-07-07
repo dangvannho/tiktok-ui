@@ -19,7 +19,9 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import Tippy from "@tippyjs/react";
 import "tippy.js/dist/tippy.css";
+import { Link } from "react-router-dom";
 
+import routesConfig from "~/config/routes";
 import styles from "./Header.module.scss";
 import images from "~/asset/images";
 import Button from "~/components/Button";
@@ -103,9 +105,9 @@ function Header() {
     <header className={cx("header")}>
       <div className={cx("content")}>
         {/* Logo */}
-        <div className={cx("logo")}>
+        <Link to={routesConfig.home} className={cx("logo")}>
           <img src={images.logo.default} alt="" />
-        </div>
+        </Link>
 
         {/* Search box*/}
         <Search />
