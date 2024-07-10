@@ -3,7 +3,6 @@ import TippyHeadless from "@tippyjs/react/headless";
 
 import Popper from "../Popper";
 import MenuItem from "./MenuItem";
-import Header from "./Header";
 import styles from "./Menu.module.scss";
 
 const cx = classNames.bind(styles);

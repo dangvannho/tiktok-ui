@@ -1,29 +1,29 @@
-import routesConfig from "~/config/routes";
+import config from "~/config";
 
-// Pages
-import Home from "~/Pages/Home";
-import Profile from "~/Pages/Profile";
-import Following from "~/Pages/Following";
-import Login from "~/Pages/Login";
-import Search from "~/Pages/Search";
-import Message from "~/Pages/Messages";
-import Friends from "~/Pages/Friends";
-import NotFound from "~/Pages/NotFound";
+// pages
+import Home from "~/pages/Home";
+import Profile from "~/pages/Profile";
+import Following from "~/pages/Following";
+import Login from "~/pages/Login";
+import Search from "~/pages/Search";
+import Message from "~/pages/Messages";
+import Friends from "~/pages/Friends";
+import NotFound from "~/pages/NotFound";
 
 // Layout
-import HeaderOnly from "~/components/Layout/HeaderOnly";
-import Upload from "~/Pages/Upload";
+import HeaderOnly from "~/layouts/HeaderOnly";
+import Upload from "~/pages/Upload";
 
 const publicRoutes = [
-  { path: routesConfig.home, component: Home },
-  { path: routesConfig.following, component: Following },
-  { path: routesConfig.profile, component: Profile },
-  { path: routesConfig.login, component: Login, layout: null },
-  { path: routesConfig.search, component: Search },
-  { path: routesConfig.messages, component: Message, layout: HeaderOnly },
-  { path: routesConfig.friends, component: Friends },
-  { path: routesConfig.upload, component: Upload },
-  { path: routesConfig.notFound, component: NotFound, layout: null },
+  { path: config.routes.home, component: Home },
+  { path: config.routes.following, component: Following },
+  { path: config.routes.profile, component: Profile },
+  { path: config.routes.login, component: Login, layout: null },
+  { path: config.routes.search, component: Search },
+  { path: config.routes.messages, component: Message, layout: HeaderOnly },
+  { path: config.routes.friends, component: Friends },
+  { path: config.routes.upload, component: Upload },
+  { path: config.routes.notFound, component: NotFound, layout: null },
 ];
 
 const PrivateRoutes = {};
