@@ -70,8 +70,8 @@ function Search() {
           <div className={cx("search-result")} tabIndex="-1" {...attrs}>
             <Popper>
               <h4 className={cx("search-title")}>Tài khoản</h4>
-              {searchResult.map((item) => {
-                return <AccountItems data={item} key={item.id} />;
+              {searchResult.map((result) => {
+                return <AccountItems data={result} key={result.id} />;
               })}
             </Popper>
           </div>
@@ -89,6 +89,7 @@ function Search() {
             }}
             ref={inputRef}
           />
+
           {/* Clear Button */}
           {!!searchValue && !loading && (
             <button className={cx("clear")} onClick={handleClear}>

@@ -1,4 +1,5 @@
 import classNames from "classnames/bind";
+import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import styles from "./AccountItems.module.scss";
@@ -23,5 +24,9 @@ function AccountItems({ data }) {
     </Link>
   );
 }
+
+AccountItems.propTypes = {
+  data: PropTypes.object.isRequired,
+};
 
 export default AccountItems;

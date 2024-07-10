@@ -124,26 +124,30 @@ function Header() {
             </Button>
 
             {/* Message button */}
-            <Tippy
-              content="Tin nhắn"
-              interactive="true"
-              className={cx("message-tippy")}
-            >
-              <div className={cx("message-btn")}>
-                <FontAwesomeIcon icon={faPaperPlane} />
-              </div>
-            </Tippy>
+            <div>
+              <Tippy
+                content="Tin nhắn"
+                interactive="true"
+                className={cx("message-tippy")}
+              >
+                <div className={cx("message-btn")}>
+                  <FontAwesomeIcon icon={faPaperPlane} />
+                </div>
+              </Tippy>
+            </div>
 
             {/* Letter button */}
-            <Tippy
-              content="Hộp thư"
-              interactive="true"
-              className={cx("letter-tippy")}
-            >
-              <div className={cx("letter-btn")}>
-                <FontAwesomeIcon icon={faEnvelope} />
-              </div>
-            </Tippy>
+            <div>
+              <Tippy
+                content="Hộp thư"
+                interactive="true"
+                className={cx("letter-tippy")}
+              >
+                <div className={cx("letter-btn")}>
+                  <FontAwesomeIcon icon={faEnvelope} />
+                </div>
+              </Tippy>
+            </div>
 
             {/* User account */}
             <Menu items={MENU_ITEM2}>
