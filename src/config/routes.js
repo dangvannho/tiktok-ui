@@ -7,6 +7,7 @@ const routesConfig = {
   messages: "/messages",
   friends: "/friends",
   upload: "/upload",
+  notFound: "*",
 };
 
 export default routesConfig;

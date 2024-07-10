@@ -8,7 +8,7 @@ import {
 import TippyHeadless from "@tippyjs/react/headless";
 import classNames from "classnames/bind";
 
-import { seacrhService } from "~/apiServices/searchService";
+import searchApi from "~/apiServices/searchService";
 import Popper from "~/components/Popper";
 import AccountItems from "~/components/AccountItems";
 import useDebounce from "~/hooks/useDebounce";
@@ -47,15 +47,17 @@ function Search() {
       return;
     }
 
-    setLoading(true);
-
     // Api
-    seacrhService(debounced)
-      .then((respone) => {
-        setSearchResult(respone.data.data);
-        setLoading(false);
-      })
-      .catch(() => setLoading(false));
+    const fetchApi = async () => {
+      setLoading(true);
+
+      const result = await searchApi(debounced);
+      setSearchResult(result);
+
+      setLoading(false);
+    };
+
+    fetchApi();
   }, [debounced]);
 
   return (

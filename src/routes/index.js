@@ -8,6 +8,7 @@ import Login from "~/Pages/Login";
 import Search from "~/Pages/Search";
 import Message from "~/Pages/Messages";
 import Friends from "~/Pages/Friends";
+import NotFound from "~/Pages/NotFound";
 
 // Layout
 import HeaderOnly from "~/components/Layout/HeaderOnly";
@@ -22,6 +23,7 @@ const publicRoutes = [
   { path: routesConfig.messages, component: Message, layout: HeaderOnly },
   { path: routesConfig.friends, component: Friends },
   { path: routesConfig.upload, component: Upload },
+  { path: routesConfig.notFound, component: NotFound, layout: null },
 ];
 
 const PrivateRoutes = {};
