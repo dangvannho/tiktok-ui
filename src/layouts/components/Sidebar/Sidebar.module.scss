@@ -1,0 +1,10 @@
+.wapper {
+  width: 300px;
+  padding: 20px 0px 26px 8px;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    border-radius: 0px;
+    width: 6px;
+  }
+}

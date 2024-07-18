@@ -9,10 +9,12 @@ import Search from "~/pages/Search";
 import Message from "~/pages/Messages";
 import Friends from "~/pages/Friends";
 import NotFound from "~/pages/NotFound";
+import Upload from "~/pages/Upload";
+import Explore from "~/pages/Explore";
+import Live from "~/pages/Live";
 
 // Layout
 import HeaderOnly from "~/layouts/HeaderOnly";
-import Upload from "~/pages/Upload";
 
 const publicRoutes = [
   { path: config.routes.home, component: Home },
@@ -23,6 +25,8 @@ const publicRoutes = [
   { path: config.routes.messages, component: Message, layout: HeaderOnly },
   { path: config.routes.friends, component: Friends },
   { path: config.routes.upload, component: Upload },
+  { path: config.routes.explore, component: Explore },
+  { path: config.routes.live, component: Live },
   { path: config.routes.notFound, component: NotFound, layout: null },
 ];
 

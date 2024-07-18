@@ -1,8 +1,6 @@
 import classNames from "classnames/bind";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faEnvelope,
-  faPaperPlane,
   faUser,
   faCircleQuestion,
   faBookmark,
@@ -28,6 +26,7 @@ import Button from "~/components/Button";
 import Menu from "~/components/Menu";
 import Search from "../Search";
 import avatar from "~/asset/avatar/avatar-img.jpg";
+import { UpLoadIcon, MessageIcon, LetterBoxIcon } from "~/components/Icons";
 
 const cx = classNames.bind(styles);
 
@@ -115,11 +114,7 @@ function Header() {
         {currentUser ? (
           <div className={cx("group-btn")}>
             {/* upload button */}
-            <Button
-              upload
-              to="/upload"
-              leftIcon={<FontAwesomeIcon icon={faPlus} />}
-            >
+            <Button upload to="/upload" leftIcon={<UpLoadIcon />}>
               Tải lên
             </Button>
 
@@ -131,7 +126,7 @@ function Header() {
                 className={cx("message-tippy")}
               >
                 <div className={cx("message-btn")}>
-                  <FontAwesomeIcon icon={faPaperPlane} />
+                  <MessageIcon />
                 </div>
               </Tippy>
             </div>
@@ -144,7 +139,7 @@ function Header() {
                 className={cx("letter-tippy")}
               >
                 <div className={cx("letter-btn")}>
-                  <FontAwesomeIcon icon={faEnvelope} />
+                  <LetterBoxIcon />
                 </div>
               </Tippy>
             </div>

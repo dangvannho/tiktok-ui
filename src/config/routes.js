@@ -7,6 +7,8 @@ const routes = {
   messages: "/messages",
   friends: "/friends",
   upload: "/upload",
+  explore: "/explore",
+  live: "/live",
   notFound: "*",
 };
 

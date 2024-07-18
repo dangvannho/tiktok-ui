@@ -1,0 +1,74 @@
+.wapper {
+  padding: 10px 0;
+
+  .title {
+    padding: 10px 8px;
+    font-weight: 600;
+    font-size: 1.6rem;
+    color: #5c5e66;
+  }
+
+  .body {
+    height: 300px;
+    overflow: hidden;
+
+    &.active {
+      height: max-content;
+    }
+  }
+
+  .see-more,
+  .hide {
+    padding-left: 8px;
+    color: var(--primary-color);
+    font-family: "IBM Plex Sans", sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 18px;
+    cursor: pointer;
+  }
+}
+
+.box-account {
+  display: flex;
+  align-items: center;
+  gap: 0 13px;
+  padding: 10px 8px;
+  cursor: pointer;
+  transition: background-color 200ms ease-in-out 0s;
+
+  .avatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  &:hover {
+    background-color: rgba(22, 24, 35, 0.03);
+  }
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+
+  .nick-name {
+    position: relative;
+    width: max-content;
+    font-weight: 700;
+    font-size: 1.8rem;
+
+    .check {
+      position: absolute;
+      right: -18px;
+      top: 4px;
+      overflow: visible;
+    }
+  }
+  .username {
+    font-weight: 400;
+    font-size: 1.5rem;
+  }
+}
